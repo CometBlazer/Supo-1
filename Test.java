@@ -45,8 +45,43 @@ public class Test {
         return matrix;
     }
 
+    public static void modify(int[] arr) {
+        System.out.println("Inside modify(), arr reference = " + arr);
+        arr[0] = 99;     // modifies the array through the copy of the reference
+    }
+
     public static void main(String[] args) {
         System.out.println("Hello, World!");
         System.out.println("Lowest common set bit position of 18 and 20: " + lowestCommon(14, 25));
+
+        float[][] unitMatrix = createUnitMatrix(3);
+        System.out.println("3x3 Unit Matrix:");
+        for(float[] row : unitMatrix){
+            for(float val : row){
+                System.out.print(val + " ");
+            }
+            System.out.println();
+        }
+        float[][] transposed = transposeMatrix(new float[][]{
+            {1.0f, 2.0f, 3.0f},
+            {4.0f, 5.0f, 6.0f},
+            {7.0f, 8.0f, 9.0f}
+        });
+        System.out.println("3x3 Transposed Matrix:");
+        for(float[] row : transposed){
+            for(float val : row){
+                System.out.print(val + " ");
+            }
+            System.out.println();
+        }
+
+        int[] test = {1, 2, 3};
+
+        System.out.println("In main(), test reference = " + test);
+        System.out.println("Before modify: " + test[0]);
+
+        modify(test);
+
+        System.out.println("After modify: " + test[0]);
     }
 }
